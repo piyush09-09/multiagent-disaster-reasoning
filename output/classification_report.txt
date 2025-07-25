@@ -1,0 +1,12 @@
+                      precision    recall  f1-score   support
+
+california_wildfires       1.00      1.00      1.00        94
+    hurricane_harvey       1.00      0.99      0.99       210
+      hurricane_irma       0.99      0.99      0.99       195
+     hurricane_maria       1.00      1.00      1.00       271
+iraq_iran_earthquake       1.00      1.00      1.00        55
+     srilanka_floods       1.00      1.00      1.00        29
+
+            accuracy                           1.00       854
+           macro avg       1.00      1.00      1.00       854
+        weighted avg       1.00      1.00      1.00       854
