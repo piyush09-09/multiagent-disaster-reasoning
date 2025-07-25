@@ -1,76 +1,93 @@
  Multi-Agent Crisis AI Reasoning System
 A modular, multi-agent AI framework designed to analyze disaster-related visual and textual data to generate structured crisis summaries and response plans.
+--------------------------------------------------------------------------------
 
 📌 Overview
 This project integrates multimodal data—disaster-related tweets, metadata, aerial/street-level imagery—to build an end-to-end reasoning pipeline that includes classification, damage estimation, summarization, and response planning using a multi-agent architecture.
+--------------------------------------------------------------------------------
 
 🎯 Goals
-Classify disaster types from images and text
 
-Estimate severity of damage using vision models
+ • Classify disaster types from images and text
 
-Understand tweet context and urgency
+ • Estimate severity of damage using vision models
 
-Infer location and time from metadata
+ • Understand tweet context and urgency
 
-Generate structured response action plans
+ • Infer location and time from metadata
 
-Export final reports in JSON and PDF format
+ • Generate structured response action plans
+
+ • Export final reports in JSON and PDF format
+--------------------------------------------------------------------------------
 
 🛠️ Tools & Technologies
-Core Libraries: Python, Pandas, NumPy, OpenCV
 
-Vision Models: ResNet50 (PyTorch)
+ • Core Libraries: Python, Pandas, NumPy, OpenCV
 
-Language Models: BERTweet, T5, BART (Hugging Face)
+ • Vision Models: ResNet50 (PyTorch)
 
-Logic/Planner: GPT-4 via LangChain or rule-based logic
+ • Language Models: BERTweet, T5, BART (Hugging Face)
 
-Frontend: Streamlit / Gradio (optional)
+ • Logic/Planner: GPT-4 via LangChain or rule-based logic
 
-Report Generation: Jinja2, pdfkit
+ • Frontend: Streamlit / Gradio (optional)
 
-Version Control: Git, GitHub
+ • Report Generation: Jinja2, pdfkit
+
+ • Version Control: Git, GitHub
+---------------------------------------------------------------------------------
 
 🧱 Project Structure
-bash
-Copy
-Edit
+
 multiagent-crisis-ai/
-├── data/              # Raw data and pretrained models
-├── notebooks/         # Experiments and analysis
-├── src/               # All agent implementations
-├── reports/           # Generated PDFs/JSON reports
-├── app/               # Streamlit or Gradio UI (optional)
-├── meta/              # Metadata like meta.json
+├── data/
+
+├── notebooks/
+
+├── src/
+
+├── reports/
+
+├── app/
+
+├── meta/
+
 ├── requirements.txt
+
 ├── main.py
+
 └── README.md
+--------------------------------------------------------------------------------
+
 🧩 Agent Architecture
-Agent	Description
-Preprocessor Agent	Extracts GPS, timestamps, and tweet metadata
-Vision Agent	Performs image captioning and disaster classification
-Language Agent	Analyzes tweet context and urgency
-Planning Agent	Generates action plans via LLMs or logic rules
-Reporting Agent	Compiles summaries into exportable reports (PDF, JSON)
+
+Agent	Description:
+ • Preprocessor Agent	Extracts GPS, timestamps, and tweet metadata
+ • Vision Agent	Performs image captioning and disaster classification
+ • Language Agent	Analyzes tweet context and urgency
+ • Planning Agent	Generates action plans via LLMs or logic rules
+ • Reporting Agent	Compiles summaries into exportable reports (PDF, JSON)
+--------------------------------------------------------------------------------
 
 🤖 Models Used
-Agent	Model(s)	Task
-Vision Agent	ResNet50	Damage classification, captioning
-Language Agent	BERTweet, T5, BART	Tweet analysis and summarization
-Planning Agent	GPT-4 (LangChain) / Rule-based	Action plan generation
-Reporting Agent	Jinja2, pdfkit	Report formatting and exporting
 
+Agent	Model(s)	Task:
+ • Vision Agent	ResNet50	Damage classification, captioning
+ • Language Agent	BERTweet, T5, BART	Tweet analysis and summarization
+ • Planning Agent	GPT-4 (LangChain) / Rule-based	Action plan generation
+ • Reporting Agent	Jinja2, pdfkit	Report formatting and exporting
+ -------------------------------------------------------------------------------
+ 
 📁 Datasets
-CrisisMMD: Annotated tweet-image pairs
+
+ • CrisisMMD: Annotated tweet-image pairs
 🔗 CrisisMMD Dataset
+-------------------------------------------------------------------------------
 
 🗃️ Metadata Format
-Sample from meta.json:
 
-json
-Copy
-Edit
+ • Sample from meta.json:
 {
   "tweet_id": "1234567890",
   "image_name": "flood_001.jpg",
@@ -79,6 +96,8 @@ Edit
   "latitude": 28.6139,
   "longitude": 77.2090
 }
+-----------------------------------------------------------------------------
+
 🧪 Sample Output
 Input: A tweet with an associated image
 Output:
@@ -100,48 +119,26 @@ Export Formats:
 report_1234567890.pdf
 
 report_1234567890.json
+----------------------------------------------------------------------------
 
-⚙️ Getting Started
-✅ Prerequisites
-Python 3.8+
-
-Install dependencies:
-
-bash
-Copy
-Edit
-pip install -r requirements.txt
-🚀 Run the Pipeline
-Clone the repository
-
-bash
-Copy
-Edit
-git clone https://github.com/your-repo/multiagent-crisis-ai.git
-cd multiagent-crisis-ai
-Upload Datasets and Pretrained Models into the data/ folder.
-
-Run the main script
-
-bash
-Copy
-Edit
-python main.py
 📍 Milestones
-Week 1–2: Metadata extraction & preprocessing
 
-Week 3–4: Vision & language model training
+ • Week 1–2: Metadata extraction & preprocessing
 
-Week 5: Agent integration & decision logic
+ • Week 3–4: Vision & language model training
 
-Week 6: Report generation & formatting
+ • Week 5: Agent integration & decision logic
 
-Week 7: Optional UI (Streamlit/Gradio)
+ • Week 6: Report generation & formatting
 
-Week 8: Final packaging & deployment
+ • Week 7: Optional UI (Streamlit/Gradio)
+
+ • Week 8: Final packaging & deployment
+-----------------------------------------------------------------------------
 
 🧑‍💻 Contributions
-Built by Piyush Kumar
+
+ • Built by Piyush Kumar
 🎓 Capstone Project: Real-world AI for humanitarian response
 
 🔗 Resources
