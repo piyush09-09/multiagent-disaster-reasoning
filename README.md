@@ -1,134 +1,162 @@
-Multi-Agent Crisis AI Reasoning System
-
-A modular multi-agent AI framework designed to analyze disaster-related visual and textual data to generate structured crisis summaries and response plans. This system integrates computer vision, natural language understanding, geolocation, and planning capabilities to provide real-time actionable insights from multimodal sources.
+\# Multi-Agent Crisis AI Reasoning System
 
 
 
-Overview
-
-This project implements a multi-agent architecture for multimodal crisis reasoning using:
+A modular multi-agent AI framework that analyzes disaster-related visual and textual data to generate structured crisis summaries and response plans.
 
 
 
-Disaster-related tweets and metadata
+---
 
 
 
-Aerial/street-level imagery
+\## 🔍 Overview
 
 
 
-Location and timestamp information
+This project implements a \*\*multi-agent architecture\*\* for multimodal crisis reasoning using:
 
 
 
-Pretrained vision and language models
+\* Disaster-related tweets and metadata
+
+\* Aerial and street-level imagery
+
+\* Location and timestamp information
+
+\* Pretrained vision and language models
 
 
 
-Objective
+---
+
+
+
+\## 🎯 Objective
+
+
 
 The system is capable of:
 
 
 
-Identifying the disaster type and affected elements
+\* Classifying disaster types from images and text
+
+\* Estimating damage severity from visual inputs
+
+\* Extracting crisis context from tweets
+
+\* Inferring geolocation from metadata or textual clues
+
+\* Generating structured action plans
+
+\* Exporting readable reports (JSON/PDF)
 
 
 
-Estimating damage severity from images
+---
 
 
 
-Extracting and reasoning over tweet-based context
+\## 🧹 Architecture Overview
 
 
 
-Inferring geolocation from GPS metadata or textual location clues
+\### Core Agents:
 
 
 
-Generating response action plans
+\* \*\*Preprocessor Agent\*\*
 
 
 
-Exporting human-readable reports with visual overlays and structured JSON/PDF formats
+&nbsp; \* Extracts GPS, timestamps, and tweet metadata
 
 
 
-System Architecture
-
-Pipeline Flow:
+\* \*\*Vision Agent\*\*
 
 
 
-Preprocessor Agent
+&nbsp; \* Performs image captioning and disaster classification
 
-Extracts metadata like GPS coordinates and timestamps from images or tweet content.
-
-
-
-Vision Agent
-
-Performs image captioning, disaster classification, and severity assessment using deep vision models.
+&nbsp; \* Detects severity and key crisis elements
 
 
 
-Language Agent
-
-Summarizes tweet content, infers contextual crisis information using pretrained transformers.
+\* \*\*Language Agent\*\*
 
 
 
-Planning Agent
+&nbsp; \* Analyzes tweet context
 
-Uses rules or generative LLMs to recommend crisis response actions.
-
-
-
-Reporting Agent
-
-Compiles outputs into structured formats: JSON, PDFs, and front-end display.
+&nbsp; \* Extracts disaster type and urgency indicators
 
 
 
-Agents and Models
-
-Agent	Description	Tools/Models Used
-
-Preprocessor	Extracts GPS, timestamp from image/tweet metadata	exifread, Pillow, geopy
-
-Vision Agent	Classifies disasters, generates captions, detects damage	ResNet5
-
-Language Agent	Summarizes tweets and infers crisis context	BERTweet, BART, T5, LangChain
-
-Planning Agent	Generates response plans based on vision + language output	GPT-4, rule-based logic
-
-Reporting Agent	Compiles final report (textual, JSON, PDF)	Jinja2, pdfkit, Streamlit
+\* \*\*Planning Agent\*\*
 
 
 
-Datasets Used
-
-Dataset	Purpose
-
-CrisisMMD	Multimodal tweet-image pairs
-
-link: https://crisisnlp.qcri.org/crisismmd
+&nbsp; \* Uses logic/LLMs to create a response plan
 
 
 
-Metadata Format
-
-Each image-tweet pair is enriched with structured metadata:
+\* \*\*Reporting Agent\*\*
 
 
 
-json
+&nbsp; \* Compiles summaries into reports (PDF, JSON, UI)
 
-Copy
 
-Edit
+
+---
+
+
+
+\## 🧠 Agent Models Used
+
+
+
+| Agent           | Model(s)                            | Task                                |
+
+| --------------- | ----------------------------------- | ----------------------------------- |
+
+| Vision Agent    | ResNet50                            | Damage classification \& captioning  |
+
+| Language Agent  | BERTweet, T5, BART                  | Tweet understanding \& summarization |
+
+| Planning Agent  | GPT-4 (via LangChain) or rule-based | Action plan generation              |
+
+| Reporting Agent | Jinja2, pdfkit                      | Report generation                   |
+
+
+
+---
+
+
+
+\## 📃 Datasets
+
+
+
+\* \*\*CrisisMMD\*\* – Tweet-image pairs with annotations
+
+Link : https://crisisnlp.qcri.org/crisismmd
+
+---
+
+
+
+\## 🗃️ Metadata Format
+
+
+
+Sample entry from `meta.json`:
+
+
+
+```json
 
 {
 
@@ -146,145 +174,159 @@ Edit
 
 }
 
-Example Output
+```
 
-Input:
 
-A disaster image and associated tweet content.
 
+---
 
 
-Output:
 
+\## 🧪 Output Example
 
 
-Crisis summary: "Severe flooding observed in East Delhi. Three buildings submerged."
 
+\* \*\*Input\*\*: A tweet and an associated image
 
+\* \*\*Output\*\*:
 
-Location: "East Delhi, Zone B"
 
 
+&nbsp; \* \*\*Disaster Summary\*\*: "Severe flooding in East Delhi, multiple buildings submerged."
 
-Action plan:
+&nbsp; \* \*\*Location\*\*: "East Delhi, Zone B"
 
+&nbsp; \* \*\*Action Plan\*\*:
 
 
-Evacuate residential blocks in Zone B
 
+&nbsp;   \* Evacuate Zone B
 
+&nbsp;   \* Deploy medical and rescue units
 
-Deploy rescue boats and medical units
+&nbsp;   \* Restrict access to main roads
 
+&nbsp; \* \*\*Export Formats\*\*:
 
 
-Block traffic on NH-24 for relief access
 
+&nbsp;   \* JSON
 
+&nbsp;   \* PDF
 
-Export: PDF report and structured JSON
 
 
+---
 
-Getting Started
 
-Prerequisites
 
-Python 3.8+
+\## ⚙️ Getting Started
 
 
 
-PyTorch, HuggingFace Transformers
+\### Prerequisites
 
 
 
-torchvision, Pillow, pandas, geopy
+\* Python 3.8+
 
+\* Install dependencies:
 
 
-Steps to Run
 
-Clone the repository and set up the environment:
+&nbsp; ```bash
 
+&nbsp; pip install -r requirements.txt
 
+&nbsp; ```
 
-bash
 
-Copy
 
-Edit
+\### Steps
 
-pip install -r requirements.txt
 
-Upload datasets (images, tweets, metadata.json) to the appropriate folders.
 
+1\. Clone the repository:
 
 
-Run the agent pipeline sequentially or through main.py:
 
+&nbsp;  ```bash
 
+&nbsp;  git clone https://github.com/your-repo/multiagent-crisis-ai.git
 
-bash
+&nbsp;  cd multiagent-crisis-ai
 
-Copy
+&nbsp;  ```
 
-Edit
 
-python main.py
 
-Final reports are saved in /reports/ as JSON and PDF.
+2\. Upload datasets and pretrained models into appropriate folders.
 
 
 
-Tech Stack
+3\. Run the main pipeline:
 
-Backend: PyTorch, Transformers, FastAPI
 
 
+&nbsp;  ```bash
 
-Frontend: Streamlit / Gradio (optional)
+&nbsp;  python main.py
 
+&nbsp;  ```
 
 
-Storage: MongoDB (for logging and metadata)
 
+---
 
 
-Coordination: LangChain Agent Graph (for modular orchestration)
 
+\## 🚀 Tech Stack
 
 
-Future Work
 
-Dynamic integration with WhatsApp/Telegram for public alerting
+\* \*\*Backend\*\*: PyTorch, HuggingFace Transformers
 
+\* \*\*Coordination (Optional)\*\*: LangChain
 
+\* \*\*Frontend (Optional)\*\*: Streamlit / Gradio
 
-OpenStreetMap overlays with bounding box outputs
+\* \*\*Exporting Reports\*\*: Jinja2, pdfkit
 
 
 
-Multilingual support for tweet/news summaries
+---
 
 
 
-Integration with real-time crisis feeds (e.g., NDMA, GDACS)
+\## 🚦 Future Enhancements
 
 
 
-License \& Ethical Use
+\* Real-time alerts via WhatsApp/Telegram
 
-Uses only open-source datasets and public APIs
+\* OSM overlays for live maps
 
+\* Multilingual tweet analysis
 
+\* Integration with NDMA/GDACS APIs
 
-No facial recognition or personal identification
 
 
+---
 
-Intended for research, education, and humanitarian use only
 
 
+\## 📄 License \& Ethics
 
-Users must validate outputs before acting on them in real-world situations
+
+
+\* Uses open-source and public datasets only
+
+\* No personally identifiable data used
+
+\* Strictly for academic and humanitarian use
+
+\* Ensure human verification before any real-world use
+
+
 
